@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Chapter2_3
 {
@@ -10,6 +11,13 @@ namespace Chapter2_3
     {
         static void Main(string[] args)
         {
+            var sales = new SalesCounter("sales.csv");
+            var amountPerStore = sales.GetPerCategorySales();
+
+            foreach(var obj in amountPerStore)
+            {
+                Console.WriteLine("{0} {1:#,#}円", obj.Key, obj.Value);
+            }
         }
     }
 }
